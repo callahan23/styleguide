@@ -1,0 +1,19 @@
+{
+  "name": "styleguide",
+  "version": "1.0.0",
+  "description": "styleguide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callahan23/styleguide.git"
+  },
+  "author": "dirk erenberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/callahan23/styleguide/issues"
+  },
+  "homepage": "https://github.com/callahan23/styleguide#readme"
+}
