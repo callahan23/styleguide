@@ -1,2 +1,4 @@
 /node_modules
+/styleguide
+/web
 .DS_Store
