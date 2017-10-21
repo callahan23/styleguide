@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 
             styles_kss : {
                 files :   [
-                    'src/**/*.css', 'src/css/**/*.html'
+                    'src/**/*.less', 'src/less/**/*.html'
                 ],
                 tasks :   [ 'kss' ],
                 options : {
@@ -50,10 +50,13 @@ module.exports = function (grunt) {
         kss : {
             options : {
                 verbose : true,
-                css: '../web/css/style.css'
+                css: '../web/css/*',
+                title: 'GDTS Styleguide',
+                builder: 'styleguide-theme'
+
             },
             dist :    {
-                src :  ['src/css'],
+                src :  ['src/less'],
                 dest : 'styleguide'
             }
         }
@@ -61,7 +64,7 @@ module.exports = function (grunt) {
 
     // Build Tasks
     var buildEssentialTasks = [ 'copy' ];
-    
+
     grunt.registerTask('build_essentials', buildEssentialTasks);
     grunt.registerTask('build_complete', [ 'build_essentials', 'kss' ]);
 
@@ -73,5 +76,5 @@ module.exports = function (grunt) {
     grunt.registerTask('dev_complete', [ 'build_complete', 'watch' ]);
 
     // Default Task => build_complete
-    grunt.registerTask('default', [ 'build_complete' ]);
+    grunt.registerTask('default', [ 'build_complete', 'watch' ]);
 };

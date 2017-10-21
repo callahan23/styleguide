@@ -5,13 +5,12 @@
   <title>{{options.title}}</title>
 
   <meta name="description" content="">
-  <meta name="generator" content="kss-node">
   <meta name="viewport" content="width=device-width">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="kss-assets/kss.css">
   {{{styles}}}
 </head>
-<body id="kss-node" {{#if template.isItem}}class="kss-fullscreen-mode"{{/if}}>
+<body class="container" id="kss-node" {{#if template.isItem}}class="kss-fullscreen-mode"{{/if}}>
 
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
@@ -21,14 +20,14 @@
     <ul class="kss-nav__menu">
       <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="./">
-          <span class="kss-nav__ref">0</span
-          ><span class="kss-nav__name">Overview</span>
+          <span class="kss-nav__ref">0</span><span class="kss-nav__name">Overview</span>
         </a>
       </li>
     {{#each menu}}
       <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-{{referenceURI}}.html">
-          <span class="kss-nav__ref">{{referenceNumber}}</span><span class="kss-nav__name">{{header}}</span>
+          <span class="kss-nav__ref">{{referenceNumber}}</span>
+          <span class="kss-nav__name">{{header}}</span>
         </a>
         {{#if isActive}}
           {{#if children}}
@@ -36,8 +35,10 @@
             {{#each children}}
               <li class="kss-nav__menu-item">
                 <a class="kss-nav__menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
-                  <span class="kss-nav__ref {{#if isGrandChild}}kss-nav__ref-child{{/if}}">{{referenceNumber}}</span
-                  ><span class="kss-nav__name">{{header}}</span>
+                  <span class="kss-nav__ref {{#if isGrandChild}}kss-nav__ref-child{{/if}}">
+                    {{referenceNumber}}
+                    </span>
+                    <span class="kss-nav__name">{{header}}</span>
                 </a>
               </li>
             {{/each}}
