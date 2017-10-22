@@ -1,8 +1,10 @@
+
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-kss');
 
     var env = grunt.option('env') || 'dev';
@@ -10,17 +12,20 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         watch : {
+              less: {
+                  files: ['src/**/*.less'],
+                  tasks: ['less']
+              },
             assets : {
                 files :   [
-                    'src/**', '!**/*.*'
-
+                    'src/**',
+                    '!**/*.*',
                 ],
-			tasks :   [ 'copy:assets', 'kss' ],
+		tasks :   [ 'copy:assets', 'kss' ],
                 options : {
                     livereload : true
                 }
             },
-
             styles_kss : {
                 files :   [
                     'src/**/*.less', 'src/less/**/*.html'
@@ -31,6 +36,12 @@ module.exports = function (grunt) {
                 }
             }
         },
+            less: {
+                files: {
+                    src: 'src/**/*.less',
+                    dest: 'web/css/index.css'
+                }
+            },
 
         copy : {
             assets : {
@@ -39,7 +50,8 @@ module.exports = function (grunt) {
                         expand : true,
                         cwd :    'src',
                         src :    [
-                            '**/*'
+                            '**/*',
+                            '!**/*.less'
                         ],
                         dest :   'web'
                     }
@@ -50,7 +62,7 @@ module.exports = function (grunt) {
         kss : {
             options : {
                 verbose : true,
-                css: '../web/css/*',
+                css: '../web/css/index.css',
                 title: 'GDTS Styleguide',
                 builder: 'styleguide-theme'
 
@@ -66,7 +78,7 @@ module.exports = function (grunt) {
     var buildEssentialTasks = [ 'copy' ];
 
     grunt.registerTask('build_essentials', buildEssentialTasks);
-    grunt.registerTask('build_complete', [ 'build_essentials', 'kss' ]);
+    grunt.registerTask('build_complete', [ 'build_essentials', 'less', 'kss' ]);
 
     // Dev Tasks
     grunt.registerTask('dev', function () {
