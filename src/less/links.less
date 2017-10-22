@@ -1,6 +1,9 @@
 // Links
 //
 // Style guide: GDTS.Links
+a, a:active, a:hover {
+  color: inherit;
+}
 
 // Textlink 1
 //
@@ -12,8 +15,8 @@
   text-decoration: none;
 }
 
-.text-link-1 :hover,
-.text-link-1 :active {
+.text-link-1:hover,
+.text-link-1:active {
   text-decoration: none;
 }
 
@@ -24,6 +27,7 @@
 // Style guide: GDTS.Links.Textlink2
 .text-link-2 {
   font-weight: 200;
+  text-decoration: underline;
 }
 
 // Arrowlink
@@ -32,17 +36,16 @@
 //
 // Style guide: GDTS.Links.Arrowlink
 .arrow-link {
-  font-family: "Glen-Dimplex-Sans-Heavy";
-  font-size: 16pt;
-  line-height: 24pt;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+.arrow-link:hover,
+.arrow-link:active {
   text-decoration: none;
 }
 
-.arrow-link :hover,
-.arrow-link :active {
-  text-decoration: none;
-}
-
-.arrow-link :active {
+.arrow-link:active {
   // TODO: Make arrow appear on left side
 }
