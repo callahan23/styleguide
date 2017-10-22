@@ -1,3 +1,8 @@
+.kss-header {
+  position: fixed;
+  z-index: 10;
+}
+
 section {
   margin-bottom: 3.5%;
   padding-bottom: 4.5%;
