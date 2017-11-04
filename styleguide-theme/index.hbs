@@ -25,18 +25,19 @@
           <a href="/dummy-seite-als-platzhalter" data-drupal-link-system-path="node/31"><strong>Riedel</strong></a>
         </div>
       </nav>
-      <button type="button" class="button navbar-toggle">
-        <div class="sr-only">Toggle navigation</div>
-        <div class="icon-bar"></div>
-        <div class="icon-bar"></div>
-        <div class="icon-bar"></div>
-      </button>
+      <input class="kss-search" id="kss-search" placeholder="Search" type="text"></input>
     </header>
+    <div class="kss-search-results" id="kss-search-results"></div>
       <main role="main" class="row">
           <article class="col-12">
       {{#each sections}}
       {{#if @first}}{{else}}
-      <section id="kssref-{{referenceURI}}" class="row">
+      <div class="kss-anchor" id="kssref-{{referenceURI}}"></div>
+      <section class="row section"
+               data-url="kssref-{{referenceURI}}"
+               data-title="{{header}}"
+               data-depth="{{depth}}"
+               data-reference="{{referenceNumber}}">
         <div class="col-12">
           <h{{depth}}>
               {{header}}
@@ -109,9 +110,9 @@
       {{/each}}
       </article>
     </main>
-    <script src="kss-assets/kss.js"></script>
     <script src="kss-assets/prettify.js"></script>
     <script src="kss-assets/kss-markup.js"></script>
+    <script src="kss-assets/kss-search.js"></script>
     <script>
       prettyPrint();
       var kssMarkup = new KssMarkup({

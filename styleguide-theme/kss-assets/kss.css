@@ -3,6 +3,32 @@
   z-index: 10;
 }
 
+.kss-search {
+    height: 50%;
+    background: url(GDTS_Lupe_w.svg) no-repeat right 100%;
+}
+
+.kss-search-results {
+    position: fixed;
+    display: none;
+    top: 100px;
+    right: 0px;
+    height: 400px;
+    width: 400px;
+    background: rgba(127, 127, 127, 0.95);
+    z-index: 10;
+    flex-direction: column;
+    overflow: scroll;
+    padding: 2%;
+}
+
+.kss-anchor {
+    display: block;
+    position: relative;
+    top: -125px;
+    visibility: hidden;
+}
+
 section {
   margin-bottom: 3.5%;
   padding-bottom: 4.5%;
