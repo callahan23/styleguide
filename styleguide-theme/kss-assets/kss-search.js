@@ -7,19 +7,19 @@ function capitalize (string) {
 }
 
 searchField.onfocus = function () {
-  if(resultsHTMLElement.firstChild) {
-    resultsHTMLElement.style.display = "flex";
+  if (resultsHTMLElement.firstChild) {
+    resultsHTMLElement.style.display = 'flex';
   }
 }
 
 searchField.onblur = function () {
   setTimeout(function () {
-    resultsHTMLElement.style.display = "none";
+    resultsHTMLElement.style.display = 'none';
   }, 50);
 }
 
 searchField.oninput = function () {
-  resultsHTMLElement.style.display = "flex";
+  resultsHTMLElement.style.display = 'flex';
 
   var results = [];
 
@@ -36,15 +36,14 @@ searchField.oninput = function () {
         resultsHTMLElement.removeChild(resultsHTMLElement.firstChild);
       }
 
-      resultsHTMLElement.style.display = "none";
+      resultsHTMLElement.style.display = 'none';
 
       return;
     }
 
     var title = sections[i].getAttribute('data-title');
 
-    if (title.includes(searchString) ||
-        title.includes(capitalize(searchString))) {
+    if (title.includes(searchString) || title.includes(capitalize(searchString))) {
       var result = {
         title: sections[i].getAttribute('data-title'),
         url: sections[i].getAttribute('data-url'),
@@ -83,6 +82,6 @@ searchField.oninput = function () {
   console.log(results.length)
 
   if (results.length === 0) {
-    resultsHTMLElement.style.display = "none";
+    resultsHTMLElement.style.display = 'none';
   }
 };

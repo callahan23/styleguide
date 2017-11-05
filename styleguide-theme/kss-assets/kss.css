@@ -1,20 +1,41 @@
-.kss-header {
-  position: fixed;
-  z-index: 10;
+main {
+    margin-top: 100px;
+}
+
+.kss-sections-overview {
+    font-size: 11pt;
+    line-height: 14pt;
+    max-width: 75%;
+}
+
+.kss-sections-overview a {
+    border-right: 1px solid #444;
+    color: black;
+    padding-right: 1%;
+}
+
+.kss-sections-overview-link-3,
+.kss-sections-overview-link-4 {
+    display: none;
 }
 
 .kss-search {
-    height: 50%;
+    height: 40%;
+    width: 25%;
+    padding: 1%;
+    font-size: 13pt;
     background: url(GDTS_Lupe_w.svg) no-repeat right 100%;
+    border: 1px solid #666;
+    color: black;
+    margin-right: 2%;
 }
 
 .kss-search-results {
-    position: fixed;
+    float: right;
+    font-size: 13pt;
     display: none;
-    top: 100px;
-    right: 0px;
     height: 400px;
-    width: 400px;
+    width: 27%;
     background: rgba(127, 127, 127, 0.95);
     z-index: 10;
     flex-direction: column;
@@ -25,121 +46,139 @@
 .kss-anchor {
     display: block;
     position: relative;
-    top: -125px;
+    top: -100px;
     visibility: hidden;
 }
 
 section {
-  margin-bottom: 3.5%;
-  padding-bottom: 4.5%;
-  border-bottom: 1px solid #ccc;
+    margin-bottom: 3%;
+}
+
+.border {
+    margin-top: 6%;
+    border-bottom: 1px solid #ccc;
 }
 
 .kss-color-example .full-height {
-  height: 16vw;
+    height: 16vw;
 }
 
 .kss-color-example .half-height {
-  height: 8vw;
+    height: 8vw;
+}
+
+.kss-color-example .half-height div {
+    height: 100%;
 }
 
 .kss-color-example__white {
-  border: 1px solid grey;
+    width: 100%;
+    height: 100%;
+    border: 1px solid grey;
+    padding: 2%;
 }
 
 .kss-grid-example {
-  background-color: grey;
+    background-color: grey;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.kss-grid-example .col-1,
-.kss-grid-example .col-4,
-.kss-grid-example .col-6,
-.kss-grid-example .col-8,
-.kss-grid-example .col-12 {
-  border: 1px solid grey;
-  background-color: lightgrey;
-  padding: 2%;
+.kss-grid-example .col-xs-1,
+.kss-grid-example .col-xs-4,
+.kss-grid-example .col-xs-6,
+.kss-grid-example .col-xs-8,
+.kss-grid-example .col-xs-12 {
+    border: 1px solid grey;
+    background-color: lightgrey;
+    padding: 2%;
 }
 
 .kss-cards-example {
-  display: flex;
+    display: flex;
 }
 
- .kss-markup {
+.kss-markup {
     margin: 24px 0;
 }
 
- .pln {
+pre {
+    /* reset bootstrap defaults */
+    border: none;
+    background: none;
+}
+
+.pln {
     color: #000
 }
 
- .str {
+.str {
     color: #080
 }
 
- .kwd {
+.kwd {
     color: #008
 }
 
- .com {
+.com {
     color: #800
 }
 
- .typ {
+.typ {
     color: #606
 }
 
- .lit {
+.lit {
     color: #066
 }
 
- .pun,
- .opn,
- .clo {
+.pun,
+.opn,
+.clo {
     color: #660
 }
 
- .tag {
+.tag {
     color: #008
 }
 
- .atn {
+.atn {
     color: #606
 }
 
- .atv {
+.atv {
     color: #080
 }
 
- .dec,
- .var {
+.dec,
+.var {
     color: #606
 }
 
- .fun {
+.fun {
     color: red
 }
 
- ol.linenums {
+ol.linenums {
     margin: 0;
     padding: 0 0 3px 0;
     list-style-type: none
 }
 
- ol.linenums li {
+ol.linenums li {
     min-height: 24px;
     padding: 0 10px;
     background: #fff
 }
 
- ol.linenums li:first-child {
+ol.linenums li:first-child {
     padding-top: 3px
 }
 
- ol.linenums li.L0,
- ol.linenums li.L2,
- ol.linenums li.L4,
- ol.linenums li.L6,
- ol.linenums li.L8 {
+ol.linenums li.L0,
+ol.linenums li.L2,
+ol.linenums li.L4,
+ol.linenums li.L6,
+ol.linenums li.L8 {
     background: #fcfcfc
 }

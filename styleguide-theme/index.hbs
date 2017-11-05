@@ -5,111 +5,119 @@
     <title>{{options.title}}</title>
     <meta name="description" content="The living Styleguide for gdts.one">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="kss-assets/kss.css">
     {{{styles}}}
   </head>
-  <body class="container">
-    <header class="kss-header header color-white">
-      <nav class="nav">
-        <div class="color-black-100">
-          <a href="/" data-drupal-link-system-path="&lt;front&gt;"><strong>Glen</br>Dimplex</br></strong>Thermal Solutions</a>
-        </div>
-        <div class="color-black-35">
-          <a href="/" data-drupal-link-system-path="&lt;front&gt;">Cooling. Heating. Ventilation</a>
-        </div>
-        <div class="color-red-100">
-          <a href="/dummy-seite-als-platzhalter" data-drupal-link-system-path="node/31"><strong>Dimplex</strong></a>
-        </div>
-        <div class="color-blue-100">
-          <a href="/dummy-seite-als-platzhalter" data-drupal-link-system-path="node/31"><strong>Riedel</strong></a>
-        </div>
-      </nav>
-      <input class="kss-search" id="kss-search" placeholder="Search" type="text"></input>
-    </header>
-    <div class="kss-search-results" id="kss-search-results"></div>
-      <main role="main" class="row">
-          <article class="col-12">
-      {{#each sections}}
-      {{#if @first}}{{else}}
-      <div class="kss-anchor" id="kssref-{{referenceURI}}"></div>
-      <section class="row section"
-               data-url="kssref-{{referenceURI}}"
-               data-title="{{header}}"
-               data-depth="{{depth}}"
-               data-reference="{{referenceNumber}}">
-        <div class="col-12">
-          <h{{depth}}>
-              {{header}}
-          </h{{depth}}>
-          </div>
-          {{#if description}}
-          <div class="col-12">
-            {{{description}}}
-          </div>
-          {{/if}}
-          {{#if parameters}}
-          <div class="col-12">Parameters:</div>
-          <ul>
-            {{#each parameters}}
-            <li>
-              <div><code>{{name}}</code></div>
-              <div>
-                {{{description}}}
-                {{#if defaultValue}}
-                <div class="col-12">
-                  Defaults to: <code>{{defaultValue}}</code>
+  <body>
+    <nav class="navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <header class="header">
+              <div class="nav">
+                <div class="color-black-100">
+                  <a href="/" data-drupal-link-system-path="&lt;front&gt;"><strong>Glen</br>Dimplex</br></strong>Styleguide</a>
                 </div>
-                {{/if}}
               </div>
-            </li>
-            {{/each}}
-          </ul>
-          {{/if}}
+              <div class="kss-sections-overview">
+                {{#each sections}}
+                {{#if @first}}{{else}}
+                <a class="kss-sections-overview-link-{{depth}}" href="#kssref-{{referenceURI}}">{{header}}</a>
+                {{/if}}
+                {{/each}}
+              </div>
+              <input class="kss-search" id="kss-search" placeholder="Search" type="text"></input>
+            </header>
+            <div class="kss-search-results" id="kss-search-results"></div>
+          </div>
         </div>
-        {{#if example}}
-          {{#if modifiers}}
-          <div class="col-12">
-            Default styling
-          </div>
-          {{/if}}
-          <div class="col-12">
-            {{{example}}}
-          </div>
-          {{#each modifiers}}
-          <div class="col-12">
-            {{name}}
-          </div>
-          <div class="col-12">
-            {{{description}}}
-          </div>
-          <div class="col-12">
-            {{{markup}}}
-          </div>
-          {{/each}}
-        {{#if markup}}
-        <details class="col-12 kss-markup">
-          <summary>
-            {{#if markupFile }}
-            Markup: <code>{{ markupFile }}</code>
-            {{else}}
-            Markup
+      </div>
+    </nav>
+    <div class="container">
+      <main class="row">
+        <article class="col-xs-12">
+          {{#each sections}}
+          {{#if @first}}{{else}}
+          <div class="kss-anchor" id="kssref-{{referenceURI}}"></div>
+          <section class="row section"
+                   data-url="kssref-{{referenceURI}}"
+                   data-title="{{header}}"
+                   data-depth="{{depth}}"
+                   data-reference="{{referenceNumber}}">
+            <div class="col-xs-12">
+              <h{{depth}}>{{header}}</h{{depth}}>
+            </div>
+            {{#if description}}
+            <div class="col-xs-12">
+              {{{description}}}
+            </div>
             {{/if}}
-          </summary>
-          <pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
-        </details>
-        {{/if}}
-        {{/if}}
-        {{#if source.filename}}
-        <div class="col-12">
-          Source: <code>{{source.filename}}</code>, line {{source.line}}
-        </div>
-        {{/if}}
-      </section>
-      {{/if}}
-      {{/each}}
-      </article>
-    </main>
+            {{#if parameters}}
+            <div class="col-xs-12">Parameters:</div>
+            <ul>
+              {{#each parameters}}
+              <li>
+                <div><code>{{name}}</code></div>
+                <div>
+                  {{{description}}}
+                  {{#if defaultValue}}
+                  <div class="col-xs-12">
+                    Defaults to: <code>{{defaultValue}}</code>
+                  </div>
+                  {{/if}}
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+            {{/if}}
+            {{#if example}}
+            {{#if modifiers}}
+            <div class="col-xs-12">
+              Default styling
+            </div>
+            {{/if}}
+            <div class="col-xs-12">
+              {{{example}}}
+            </div>
+            {{#each modifiers}}
+            <div class="col-xs-12">
+              {{name}}
+            </div>
+            <div class="col-xs-12">
+              {{{description}}}
+            </div>
+            <div class="col-xs-12">
+              {{{markup}}}
+            </div>
+            {{/each}}
+            {{#if markup}}
+            <details class="col-xs-12 kss-markup">
+              <summary>
+                {{#if markupFile }}
+                Markup: <code>{{ markupFile }}</code>
+                {{else}}
+                Markup
+                {{/if}}
+              </summary>
+              <pre class="prettyprint linenums lang-html"><code data-language="html">{{markup}}</code></pre>
+            </details>
+            {{/if}}
+            {{/if}}
+            {{#if source.filename}}
+            <div class="col-xs-12">
+              Source: <code>{{source.filename}}</code>, line {{source.line}}
+            </div>
+            <div class="col-xs-12">
+              <div class="border"></div>
+            </div>
+            {{/if}}
+          </section>
+          {{/if}}
+          {{/each}}
+        </article>
+      </main>
+    </div>
     <script src="kss-assets/prettify.js"></script>
     <script src="kss-assets/kss-markup.js"></script>
     <script src="kss-assets/kss-search.js"></script>
